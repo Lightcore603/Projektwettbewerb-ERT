@@ -12,11 +12,11 @@ grid on
 figure
 nyquist(Gx)
 grid on
-
+%%
 sisotool(Gx)
 %%
 
-Kx = 0.002*(5*s + 1)/(0.25*s + 1);
+Kx = 11106*(s + 0.023)/(s + 2937);
 
 T_x = feedback(Kx*Gx,1);
 
