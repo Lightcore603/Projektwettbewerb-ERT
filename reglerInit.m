@@ -10,7 +10,7 @@ xhat0 = [0, 0, 0, 0];
 disp('Initialisiere blockbasierten LQI-Regler...');
 
 %% Nominelle Masse fuer ersten robusten Entwurf
-ml_nom = 1.0;
+ml_nom = 3.0;
 
 %% Systemmatrizen
 A = [0, 1, 0, 0;
@@ -40,8 +40,7 @@ K_lqi_noI = K_lqi;
 K_lqi_noI(5) = 0;
 
 %% Beobachter
-%obs_poles = [-25 -28 -31 -34];
-obs_poles = [-35 -38 -41 -44];
+obs_poles = [-25 -28 -31 -34];
 L_obs = place(A', C', obs_poles)';
 
 %% Beobachter-State-Space-Block
