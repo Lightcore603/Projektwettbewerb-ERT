@@ -4,13 +4,13 @@
 lim_Pos = 2.45; %Limit für Wagenposition
 lim_rate = 1.3; % Limit für Rampe
 
-xhat0 = [0, 0, 0, 0];
+xhat0 = [0; 0; 0; 0];
 
 %% reglerInit.m
 disp('Initialisiere blockbasierten LQI-Regler...');
 
 %% Nominelle Masse fuer ersten robusten Entwurf
-ml_nom = 1.0;
+ml_nom = 2.0;
 
 %% Systemmatrizen
 A = [0, 1, 0, 0;
@@ -32,7 +32,7 @@ A_aug = [A, zeros(4,1);
 B_aug = [B;
     0];
 
-Q_lqi = diag([500, 40, 900, 20, 35]);
+Q_lqi = diag([500, 40, 900, 20, 1]);
 R_lqi = 70;
 
 K_lqi = lqr(A_aug, B_aug, Q_lqi, R_lqi);
