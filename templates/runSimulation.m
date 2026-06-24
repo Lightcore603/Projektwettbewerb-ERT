@@ -49,7 +49,7 @@ phi_dotStart = 0; % Startgeschwindigkeit Pendel
 %% Initialisierung des Reglers
 tic
 %reglerInit
-reglerInit_opt
+reglerInit_opt1
 
 IC = [phiStart, phi_dotStart, xStart, x_dotStart]; %Vektor mit Anfangsbedingungen 
 
