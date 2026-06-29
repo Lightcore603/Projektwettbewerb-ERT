@@ -35,7 +35,7 @@ L = 5; % Länge des Kranauslegers in m
 % Stoerung
 Stoerung1 = .1; % .1 = Stoerung ein, 0 = aus
 stoerungNoisePower = 1;
-rng('shuffle');
+%rng('shuffle');
 stoerungSeed_1 = round((1e4-1)*rand(1));
 
 % Anfangsbedingungen
@@ -49,7 +49,7 @@ phi_dotStart = 0; % Startgeschwindigkeit Pendel
 %% Initialisierung des Reglers
 tic
 %reglerInit
-reglerInit_opt3
+reglerInit_fin
 %% 
 
 IC = [phiStart, phi_dotStart, xStart, x_dotStart]; %Vektor mit Anfangsbedingungen 

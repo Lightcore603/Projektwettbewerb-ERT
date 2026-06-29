@@ -51,6 +51,7 @@ phidot_ref_lim = 0.8;     % rad/s
 %% Momentenvorsteuerung
 ff_gain = 1;
 M_ff_max = 0.34;
+l = 1.0;   % Pendellaenge
 
 %% reglerInit.m
 disp('Initialisiere blockbasierten LQI-Regler...');

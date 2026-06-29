@@ -21,36 +21,32 @@ k_r = 7.2e-3;
 % mittlere Wege: schneller
 % kleine Wege: sehr schnell, damit kurze Referenzsprünge nicht unnötig Zeit kosten
 
-omega_ref_large  = 2.0;   % große Sprünge
-omega_ref_medium = 3.3;   % mittlere Sprünge
-omega_ref_small  = 3.3;   % kleine Sprünge
+omega_ref_large  = 2.08014;
+omega_ref_medium = 3.57058;
+omega_ref_small  = 3.92272;
 
-d_large  = 1.30;          % ab hier große Sprünge
-d_small  = 0.45;          % darunter kleine Sprünge
+d_large  = 1.18779;
+d_small  = 0.5719;
 
 % Sicherheitsreduktion bei Pendelausschlag
-phi_slow_1 = deg2rad(28); % ab hier etwas vorsichtiger
-phi_slow_2 = deg2rad(36); % ab hier deutlich vorsichtiger
+phi_slow_1 = deg2rad(26.517);
+phi_slow_2 = deg2rad(30.8674);
 
 % Begrenzungen für Trajektorie
-a_ref_lim = 3.8;          % maximale Referenzbeschleunigung
-j_ref_lim = 20.0;         % maximale Referenzjerk
+a_ref_lim = 3.91175;
+j_ref_lim = 24.6332;
 
 % Initialzustand des Referenzfilters
 x_ref0 = 0;
 v_ref0 = 0;
 a_ref0 = 0;
 
-%% Partielle Pendelreferenz
-gamma_phi = 0.30;         % 0 = aus, 1 = volle -a/g-Referenz
-phi_ref_lim = deg2rad(18);
-phidot_ref_lim = 0.8;     % rad/s
+phi_ref_lim = deg2rad(35);
+phidot_ref_lim = 1.6;
+gamma_phi = 0.195386;
+M_ff_max  = 0.39;
+ff_gain   = 0.942931;
 
-% Vorzeichen bei Bedarf testen:
-% Wenn Pendel stärker aufschaukelt, gamma_phi = -0.20 testen.
-%% Momentenvorsteuerung
-ff_gain = 1;
-M_ff_max = 0.34;
 
 %% reglerInit.m
 disp('Initialisiere blockbasierten LQI-Regler...');
@@ -73,14 +69,14 @@ C = [1 0 0 0;
 %% LQR-Entwurf
 % Zustand: [phi; phi_dot; x; x_dot]
 %Q_lqr = diag([700, 70, 900, 35]);
-Q_lqr = diag([750, 95, 2200, 105]);
-R_lqr = 32;
+Q_lqr = diag([1517.29 38 2775.3 88.4857]);
+R_lqr = 36.2316;
 
 
 
 %% Beobachterpole
 %obs_poles = [-25 -28 -31 -34];
-obs_poles = [-35 -38 -41 -44];
+obs_poles = [-29.5557 -32.5403 -35.525 -38.5096];
 L_obs = place(A', C', obs_poles)';
 
 %% Gain Scheduling Raster
